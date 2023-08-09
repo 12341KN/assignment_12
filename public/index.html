@@ -1,0 +1,35 @@
+<!-- Hello Test Frontned
+
+<br>
+
+Below api is for backend
+
+<a href="/api"> link </a> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSON Display</title>
+</head>
+<body>
+    <form id="jsonForm">
+        <textarea id="jsonInput" rows="10" cols="50" placeholder="Enter JSON"></textarea>
+        <button type="button" onclick="displayJSON()">Submit</button>
+    </form>
+    <div id="jsonDisplay"></div>
+
+    <script>
+        function displayJSON() {
+            var jsonInput = document.getElementById("jsonInput").value;
+            try {
+                var parsedJSON = JSON.parse(jsonInput);
+                var formattedJSON = JSON.stringify(parsedJSON, null, 4);
+                document.getElementById("jsonDisplay").innerHTML = "<pre>" + formattedJSON + "</pre>";
+            } catch (error) {
+                document.getElementById("jsonDisplay").innerHTML = "Invalid JSON!";
+            }
+        }
+    </script>
+</body>
+</html>
